@@ -1,0 +1,33 @@
+local s = std_effects.settings
+
+std_effects.lycanthropy = status_effects.register_effect("lycanthropy", {
+	fold = function(self, t)
+		return #t > 0 and futil.functional.all(t)
+	end,
+	step_every = 1,
+	step_catchup = false,
+	on_step = function(self, player, value)
+		local is_werewolf = std_effects.werewolf:value(player)
+		if value then
+			local can_be_werewolf = std_effects.werewolf_ok(player)
+			if can_be_werewolf and not is_werewolf then
+				std_effects.werewolf:set(player, true, "lycanthropy")
+			elseif is_werewolf and not can_be_werewolf then
+				std_effects.werewolf:clear(player, "lycanthropy")
+			end
+		else
+			if is_werewolf then
+				std_effects.werewolf:clear(player, "lycanthropy")
+			end
+		end
+	end,
+
+	infect = function(self, player)
+		self:set(player, true, "infection")
+		std_effects.werewolf:add_time(player, true, s.infection_time, "infection")
+	end,
+	cure = function(self, player)
+		self:clear(player)
+		std_effects.werewolf:clear(player)
+	end,
+})
