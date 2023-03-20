@@ -2,7 +2,7 @@
 
 std_effects.stunned = status_effects.register_effect("stunned", {
 	fold = function(self, t)
-		return #t > 0 and futil.functional.all(t)
+		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
 	end,
 	apply = function(self, player, value, old_value)
 		if value and not old_value then

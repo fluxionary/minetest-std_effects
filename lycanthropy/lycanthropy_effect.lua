@@ -2,7 +2,7 @@ local s = std_effects.settings
 
 std_effects.lycanthropy = status_effects.register_effect("lycanthropy", {
 	fold = function(self, t)
-		return #t > 0 and futil.functional.all(t)
+		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
 	end,
 	step_every = 1,
 	step_catchup = false,

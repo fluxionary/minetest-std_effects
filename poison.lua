@@ -8,7 +8,7 @@ end
 
 std_effects.poison = status_effects.register_effect("poison", {
 	fold = function(self, t)
-		return futil.math.sum(t, 0)
+		return futil.math.isum(futil.iterators.values(t), 0)
 	end,
 	step_every = 1,
 	step_catchup = true,

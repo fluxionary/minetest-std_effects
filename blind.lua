@@ -26,7 +26,7 @@ std_effects.blindness = status_effects.register_effect("blindness", {
 		self._hud_id_by_player_name = {}
 	end,
 	fold = function(self, t)
-		return #t > 0 and futil.functional.all(t)
+		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
 	end,
 	apply = function(self, player, value)
 		local player_name = player:get_player_name()

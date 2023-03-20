@@ -1,6 +1,6 @@
 std_effects.invisible = status_effects.register_effect("invisible", {
 	fold = function(self, t)
-		return futil.functional.any(t)
+		return futil.functional.iany(futil.iterators.values(t))
 	end,
 	apply = function(self, player, value, old_value)
 		if value and not old_value then

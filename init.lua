@@ -1,3 +1,5 @@
+futil.check_version({ year = 2023, month = 3, day = 20 })
+
 std_effects = fmod.create()
 
 std_effects.dofile("util")

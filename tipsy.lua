@@ -6,7 +6,7 @@ std_effects.tipsy = status_effects.register_effect("tipsy", {
 		self._fov_elapsed_by_player_name = {}
 	end,
 	fold = function(self, t)
-		return futil.math.sum(t, 0)
+		return futil.math.isum(futil.iterators.values(t), 0)
 	end,
 	step_every = 1,
 	step_catchup = true,
