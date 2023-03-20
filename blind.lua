@@ -1,12 +1,12 @@
 --[[
 do
     local player = minetest.get_player_by_name("flux")
-    blindness:add_time(player, true, 60, "blinded")  -- add 60 seconds of blindness
+    blindness:add_time(player, "blinded", true, 60)  -- add 60 seconds of blindness
 end
 
 minetest.after(5, function()
     local player = minetest.get_player_by_name("flux")
-    blindness:add_time(player, true, 5, "blinded")  -- override the timer
+    blindness:add_time(player, "blinded", true, 5)  -- override the timer
 end)
 
 minetest.register_craftitem("mymod:blindness_cure", {
@@ -15,7 +15,7 @@ minetest.register_craftitem("mymod:blindness_cure", {
             itemstack:take_item()
         end
         blindness:clear(user, true, "blinded")  -- remove blindness
-        blindness:add_time(user, false, 60, "cured")  -- add 60 seconds of protection against getting the effect again
+        blindness:add_time(user, "cured", false, 60)  -- add 60 seconds of protection against getting the effect again
         return itemstack
     end,
 })

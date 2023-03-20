@@ -1,3 +1,5 @@
+-- https://gitea.your-land.de/your-land/yl_statuseffects/commit/1aae2633c40a6880e8ea14f317f649c4e1a6baf2
+
 std_effects.stunned = status_effects.register_effect("stunned", {
 	fold = function(self, t)
 		return #t > 0 and futil.functional.all(t)

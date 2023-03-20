@@ -11,7 +11,7 @@ std_effects.lycanthropy = status_effects.register_effect("lycanthropy", {
 		if value then
 			local can_be_werewolf = std_effects.werewolf_ok(player)
 			if can_be_werewolf and not is_werewolf then
-				std_effects.werewolf:set(player, true, "lycanthropy")
+				std_effects.werewolf:add(player, "lycanthropy", true)
 			elseif is_werewolf and not can_be_werewolf then
 				std_effects.werewolf:clear(player, "lycanthropy")
 			end
@@ -24,7 +24,7 @@ std_effects.lycanthropy = status_effects.register_effect("lycanthropy", {
 
 	infect = function(self, player)
 		self:set(player, true, "infection")
-		std_effects.werewolf:add_time(player, true, s.infection_time, "infection")
+		std_effects.werewolf:add_time(player, "infection", true, s.infection_time)
 	end,
 	cure = function(self, player)
 		self:clear(player)
