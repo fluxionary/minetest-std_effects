@@ -2,13 +2,13 @@
 
 std_effects.stunned = status_effects.register_effect("stunned", {
 	fold = function(self, t)
-		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
+		return std_effects.util.not_blocked(t)
 	end,
 	apply = function(self, player, value, old_value)
-		if value and not old_value then
+		if value == true and old_value ~= true then
 			player_monoids.speed:add_change(player, 0, "std_effects:stunned")
 			player_monoids.jump:add_change(player, 0, "std_effects:stunned")
-		elseif old_value and not value then
+		elseif old_value == true and value ~= true then
 			player_monoids.speed:del_change(player, "std_effects:stunned")
 			player_monoids.jump:del_change(player, "std_effects:stunned")
 		end

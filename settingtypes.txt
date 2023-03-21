@@ -1,0 +1,81 @@
+[burning]
+
+std_effects:bleeding_enabled () bool true
+
+[blessed]
+
+std_effects:blessed_enabled () bool true
+
+[blind]
+
+std_effects:blind_enabled () bool true
+
+[burning]
+
+std_effects:burning_enabled () bool true
+
+[builders_flight]
+
+std_effects:builders_flight_enabled () bool true
+
+# how long one potion lets you fly. default is 3 IRL days.
+std_effects:builders_flight_duration (flight duration) float 259200 0
+
+# you can't fly below this y coordinate
+std_effects:builders_flight_min_elevation (minimum elevation) int -500 -31000 31000
+
+# you can't fly above this y coordinate
+std_effects:builders_flight_max_elevation (maximum elevation) int -500 -31000 31000
+
+# minimum age of an area before you can fly in it.
+std_effects:builders_flight_min_valid_area_time (time before area is valid) int 3600 0
+
+# how far beyond the edge of an area you can fly
+std_effects:builders_flight_area_check_radius (area check radius) int 5 0
+
+# how often to check whether a player can fly
+std_effects:builders_flight_check_period () float 0.18 0
+
+[invisible]
+
+std_effects:invisible_enabled () bool true
+
+[lycanthropy]
+
+std_effects:lycanthropy_enabled () bool true
+
+[poison]
+
+std_effects:poison_enabled () bool true
+
+[regen]
+
+std_effects:regen_enabled () bool true
+
+[slow]
+
+std_effects:slow_enabled () bool true
+
+[speed]
+
+std_effects:speed_enabled () bool true
+
+[strength]
+
+std_effects:strength_enabled () bool true
+
+[stunned]
+
+std_effects:stunned_enabled () bool true
+
+[tipsy]
+
+std_effects:tipsy_enabled () bool true
+
+[water_breathing]
+
+std_effects:water_breathing_enabled () bool true
+
+[weakness]
+
+std_effects:weakness_enabled () bool true

@@ -650,6 +650,7 @@ stds.std_effects = {
 		"std_effects",
 	},
 	read_globals = {
+		"areas",
 		"armor",
 		"astral",
 		"canonical_name",

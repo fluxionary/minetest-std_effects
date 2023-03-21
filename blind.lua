@@ -26,12 +26,12 @@ std_effects.blindness = status_effects.register_effect("blindness", {
 		self._hud_id_by_player_name = {}
 	end,
 	fold = function(self, t)
-		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
+		return std_effects.util.not_blocked(t)
 	end,
 	apply = function(self, player, value)
 		local player_name = player:get_player_name()
 		local hud_id = self._hud_id_by_player_name[player_name]
-		if value then
+		if value == true then
 			if not hud_id then
 				hud_id = player:hud_add({
 					name = "status_effects:blindness",
@@ -52,4 +52,5 @@ std_effects.blindness = status_effects.register_effect("blindness", {
 			end
 		end
 	end,
+	hud_line = std_effects.util.enabled_or_blocked_hud_line,
 })

@@ -161,12 +161,12 @@ std_effects.werewolf = status_effects.register_effect("werewolf", {
 		self._hud_id_by_player_name = {}
 	end,
 	fold = function(self, t)
-		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
+		return std_effects.util.not_blocked(t)
 	end,
 	apply = function(self, player, value, previous_value)
-		if value and not previous_value then
+		if value == true and previous_value ~= true then
 			self:_become_werewolf(player)
-		elseif not value and previous_value then
+		elseif previous_value == true and value ~= true then
 			self:_become_human(player)
 		end
 	end,

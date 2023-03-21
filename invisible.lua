@@ -1,6 +1,6 @@
 std_effects.invisible = status_effects.register_effect("invisible", {
 	fold = function(self, t)
-		return futil.functional.iany(futil.iterators.values(t))
+		return std_effects.util.any_value(t)
 	end,
 	apply = function(self, player, value, old_value)
 		if value and not old_value then
@@ -11,6 +11,7 @@ std_effects.invisible = status_effects.register_effect("invisible", {
 			self._unhide_name(player)
 		end
 	end,
+	hud_line = std_effects.util.numeric_hud_line,
 
 	_hide_textures = function(player)
 		local meta = player:get_meta()

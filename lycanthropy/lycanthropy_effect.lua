@@ -2,14 +2,14 @@ local s = std_effects.settings
 
 std_effects.lycanthropy = status_effects.register_effect("lycanthropy", {
 	fold = function(self, t)
-		return not futil.table.is_empty(t) and futil.functional.iall(futil.iterators.values(t))
+		return std_effects.util.any_value(t)
 	end,
 	step_every = 1,
 	step_catchup = false,
 	on_step = function(self, player, value)
 		local is_werewolf = std_effects.werewolf:value(player)
 		if value then
-			local can_be_werewolf = std_effects.werewolf_ok(player)
+			local can_be_werewolf = std_effects.util.werewolf_ok(player)
 			if can_be_werewolf and not is_werewolf then
 				std_effects.werewolf:add(player, "lycanthropy", true)
 			elseif is_werewolf and not can_be_werewolf then

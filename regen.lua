@@ -1,6 +1,9 @@
+local S = std_effects.S
+
 std_effects.regen = status_effects.register_effect("regen", {
+	description = S("regen"),
 	fold = function(self, t)
-		return futil.math.isum(futil.iterators.values(t), 0)
+		return std_effects.util.sum_values(t)
 	end,
 	step_every = 1,
 	step_catchup = true,
@@ -14,4 +17,5 @@ std_effects.regen = status_effects.register_effect("regen", {
 	on_die = function(self, player)
 		self:clear(player)
 	end,
+	hud_line = std_effects.util.numeric_hud_line,
 })

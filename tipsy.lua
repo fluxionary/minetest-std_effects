@@ -2,11 +2,11 @@ local fov_scale = 0.5
 local fov_speed = 1
 
 std_effects.tipsy = status_effects.register_effect("tipsy", {
+	fold = function(self, t)
+		return std_effects.util.sum_values(t)
+	end,
 	on_startup = function(self)
 		self._fov_elapsed_by_player_name = {}
-	end,
-	fold = function(self, t)
-		return futil.math.isum(futil.iterators.values(t), 0)
 	end,
 	step_every = 1,
 	step_catchup = true,
