@@ -28,8 +28,8 @@ function std_effects.util.any_value(t)
 	return futil.functional.iany(futil.iterators.values(t))
 end
 
-function std_effects.util.sum_values(t)
-	return futil.math.isum(futil.iterators.values(t), 0)
+function std_effects.util.sum_values(t, default)
+	return futil.math.isum(futil.iterators.values(t), default or 0)
 end
 
 function std_effects.util.numeric_hud_line(self, player)
