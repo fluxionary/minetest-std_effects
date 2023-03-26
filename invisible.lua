@@ -40,7 +40,7 @@ std_effects.invisible = status_effects.register_effect("invisible", {
 
 if std_effects.has["3d_armor"] then
 	armor:register_on_update(function(player)
-		if std_effects.invisible(player) then
+		if std_effects.invisible:value(player) then
 			std_effects.invisible:_hide_textures(player)
 		end
 	end)
