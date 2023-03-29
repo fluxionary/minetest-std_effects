@@ -21,35 +21,27 @@ minetest.register_craftitem("mymod:blindness_cure", {
 })
 ]]
 
+std_effects.blindness_hud = futil.define_hud("status_effects:blindness", {
+	get_hud_def = function(player)
+		return {
+			name = "status_effects:blindness",
+			hud_elem_type = "image",
+			position = { x = 0.5, y = 0.5 },
+			scale = { x = -100, y = -100 },
+			text = "[combine:16x16^[noalpha^[colorize:#000:255",
+		}
+	end,
+})
+
 std_effects.blindness = status_effects.register_effect("blindness", {
-	on_startup = function(self)
-		self._hud_id_by_player_name = {}
+	fold = function(self, values_by_key)
+		return std_effects.util.not_blocked(values_by_key)
 	end,
-	fold = function(self, t)
-		return std_effects.util.not_blocked(t)
-	end,
-	apply = function(self, player, value)
-		local player_name = player:get_player_name()
-		local hud_id = self._hud_id_by_player_name[player_name]
-		if value == true then
-			if not hud_id then
-				hud_id = player:hud_add({
-					name = "status_effects:blindness",
-					hud_elem_type = "image",
-					position = { x = 0.5, y = 0.5 },
-					scale = { x = -100, y = -100 },
-					text = "[combine:16x16^[noalpha^[colorize:#000:255",
-				})
-				self._hud_id_by_player_name[player_name] = hud_id
-			end
-		else
-			if hud_id then
-				local hud_def = player:hud_get(hud_id)
-				if hud_def.name == "status_effects:blindness" then
-					player:hud_remove(hud_id)
-				end
-				self._hud_id_by_player_name[player_name] = nil
-			end
+	apply = function(self, player, value, old_value)
+		if value == true and old_value ~= true then
+			std_effects.blindness_hud:set_enabled(player, true)
+		elseif old_value == true and value ~= true then
+			std_effects.blindness_hud:set_enabled(player, false)
 		end
 	end,
 	hud_line = std_effects.util.enabled_or_blocked_hud_line,
