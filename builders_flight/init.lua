@@ -5,3 +5,4 @@ end
 
 std_effects.dofile("builders_flight", "effect")
 std_effects.dofile("builders_flight", "areas")
+std_effects.dofile("builders_flight", "item")
