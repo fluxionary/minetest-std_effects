@@ -2,10 +2,6 @@
 
 std_effects:bleeding_enabled () bool true
 
-[blessed]
-
-std_effects:blessed_enabled () bool true
-
 [blind]
 
 std_effects:blind_enabled () bool true

@@ -659,6 +659,7 @@ stds.std_effects = {
 		"name_monoid",
 		"petz",
 		"player_api",
+		"player_attributes",
 		"player_monoids",
 		"status_effects",
 	},

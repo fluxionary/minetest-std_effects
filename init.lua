@@ -10,10 +10,6 @@ if s.bleeding_enabled then
 	std_effects.dofile("bleeding")
 end
 
-if s.blessed_enabled then
-	std_effects.dofile("blessed")
-end
-
 if s.blind_enabled then
 	std_effects.dofile("blind")
 end
