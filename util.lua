@@ -32,6 +32,16 @@ function std_effects.util.sum_values(t, default)
 	return futil.math.isum(futil.iterators.values(t), default or 0)
 end
 
+function std_effects.util.max_values(t, default)
+	local max = default
+	for _, value in pairs(t) do
+		if value > max then
+			max = value
+		end
+	end
+	return max
+end
+
 function std_effects.util.numeric_hud_line(self, player)
 	local value = self:value(player)
 	local remaining = self:remaining_time(player)

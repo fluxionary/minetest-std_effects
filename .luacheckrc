@@ -662,5 +662,6 @@ stds.std_effects = {
 		"player_attributes",
 		"player_monoids",
 		"status_effects",
+		"toolcap_monoids",
 	},
 }

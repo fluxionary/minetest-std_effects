@@ -1,4 +1,7 @@
+local S = std_effects.S
+
 std_effects.bleeding = status_effects.register_effect("bleeding", {
+	description = S("bleeding"),
 	fold = function(self, values_by_key)
 		return std_effects.util.sum_values(values_by_key, 0)
 	end,

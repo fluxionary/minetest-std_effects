@@ -1,3 +1,5 @@
+local S = std_effects.S
+
 local function is_in_water(player)
 	local target_pos = player:get_pos()
 	local target_in_node = minetest.get_node(target_pos)
@@ -5,6 +7,7 @@ local function is_in_water(player)
 end
 
 std_effects.burning = status_effects.register_effect("burning", {
+	description = S("burning"),
 	fold = function(self, values_by_key)
 		return std_effects.util.sum_values(values_by_key, 0)
 	end,

@@ -20,6 +20,7 @@ minetest.register_craftitem("mymod:blindness_cure", {
     end,
 })
 ]]
+local S = std_effects.S
 
 std_effects.blindness_hud = futil.define_hud("status_effects:blindness", {
 	get_hud_def = function(player)
@@ -34,6 +35,7 @@ std_effects.blindness_hud = futil.define_hud("status_effects:blindness", {
 })
 
 std_effects.blindness = status_effects.register_effect("blindness", {
+	description = S("blindness"),
 	fold = function(self, values_by_key)
 		return std_effects.util.not_blocked(values_by_key)
 	end,

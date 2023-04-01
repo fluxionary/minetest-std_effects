@@ -7,9 +7,12 @@
 	end,
 ]]
 
+local S = std_effects.S
+
 local breath_attribute = player_attributes.get_bounded_attribute("breath")
 
 std_effects.miasma = status_effects.register_effect("miasma", {
+	description = S("miasma"),
 	fold = function(self, values_by_key)
 		return std_effects.util.sum_values(values_by_key)
 	end,

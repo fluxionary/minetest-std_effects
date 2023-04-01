@@ -5,8 +5,10 @@ do
 	std_effects.poison:add_time(player, 3, 4, "stung")
 end
 ]]
+local S = std_effects.S
 
 std_effects.poison = status_effects.register_effect("poison", {
+	description = S("poison"),
 	fold = function(self, t)
 		return std_effects.util.sum_values(t)
 	end,

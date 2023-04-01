@@ -1,7 +1,10 @@
-local fov_scale = 0.5
-local fov_speed = 1
+local S = std_effects.S
+
+local fov_scale = 0.5 -- TODO setting
+local fov_speed = 1 -- TODO setting
 
 std_effects.tipsy = status_effects.register_effect("tipsy", {
+	description = S("tipsy"),
 	fold = function(self, t)
 		return std_effects.util.sum_values(t)
 	end,

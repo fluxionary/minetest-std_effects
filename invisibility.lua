@@ -1,4 +1,7 @@
-std_effects.invisible = status_effects.register_effect("invisible", {
+local S = std_effects.S
+
+std_effects.invisibility = status_effects.register_effect("invisibility", {
+	description = S("invisibility"),
 	fold = function(self, t)
 		return std_effects.util.any_value(t)
 	end,
@@ -40,8 +43,8 @@ std_effects.invisible = status_effects.register_effect("invisible", {
 
 if std_effects.has["3d_armor"] then
 	armor:register_on_update(function(player)
-		if std_effects.invisible:value(player) then
-			std_effects.invisible:_hide_textures(player)
+		if std_effects.invisibility:value(player) then
+			std_effects.invisibility:_hide_textures(player)
 		end
 	end)
 end

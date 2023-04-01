@@ -52,6 +52,8 @@ end
 player_api.register_model(werewolf_model, werewolf_animations)
 
 std_effects.werewolf = status_effects.register_effect("werewolf", {
+	description = S("werewolf"),
+
 	_set_werewolf_appearance = function(self, player)
 		local meta = player:get_meta()
 		local old_animation = player_api.get_animation(player)

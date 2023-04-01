@@ -10,8 +10,8 @@ if s.bleeding_enabled then
 	std_effects.dofile("bleeding")
 end
 
-if s.blind_enabled then
-	std_effects.dofile("blind")
+if s.blindness_enabled then
+	std_effects.dofile("blindness")
 end
 
 if s.builders_flight_enabled then
@@ -22,8 +22,16 @@ if s.burning_enabled then
 	std_effects.dofile("burning")
 end
 
-if s.invisible_enabled then
-	std_effects.dofile("invisible")
+if s.exhaustion_enabled then
+	std_effects.dofile("exhaustion")
+end
+
+if s.haste_enabled then
+	std_effects.dofile("haste")
+end
+
+if s.invisibility_enabled then
+	std_effects.dofile("invisibility")
 end
 
 if s.lycanthropy_enabled then
@@ -38,24 +46,20 @@ if s.regen_enabled then
 	std_effects.dofile("regen")
 end
 
-if s.shielded_enabled then
-	std_effects.dofile("shielded")
+if s.shield_enabled then
+	std_effects.dofile("shield")
 end
 
-if s.slow_enabled then
-	std_effects.dofile("slow")
-end
-
-if s.speed_enabled then
-	std_effects.dofile("speed")
+if s.slowness_enabled then
+	std_effects.dofile("slowness")
 end
 
 if s.strength_enabled then
 	std_effects.dofile("strength")
 end
 
-if s.stunned_enabled then
-	std_effects.dofile("stunned")
+if s.stun_enabled then
+	std_effects.dofile("stun")
 end
 
 if s.tipsy_enabled then

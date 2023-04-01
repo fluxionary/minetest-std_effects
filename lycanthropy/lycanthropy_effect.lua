@@ -1,6 +1,8 @@
+local S = std_effects.S
 local s = std_effects.settings
 
 std_effects.lycanthropy = status_effects.register_effect("lycanthropy", {
+	description = S("lycanthropy"),
 	fold = function(self, t)
 		return std_effects.util.any_value(t)
 	end,
