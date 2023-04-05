@@ -56,6 +56,9 @@ std_effects:poison_enabled () bool true
 
 std_effects:regen_enabled () bool true
 
+std_effects:base_regen_value () float 1 0
+std_effects:regen_rate () float 0.05 0
+
 [shield[
 
 std_effects:shield_enabled () bool true
