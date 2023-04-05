@@ -11,6 +11,7 @@ std_effects.exhaustion = status_effects.register_effect("exhaustion", {
 		local wielded_item = player:get_wielded_item()
 		local old_groupcaps = wielded_item:get_tool_capabilities()
 		if value <= 0 then
+			-- TODO don't fuck w/ non-tools
 			toolcap_monoids.full_punch:del_change(wielded_item, "std_effects:exhaustion")
 			toolcap_monoids.dig_speed:del_change(wielded_item, "std_effects:exhaustion")
 			player_monoids.speed:del_change(player, "std_effects:exhaustion")

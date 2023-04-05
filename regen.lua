@@ -12,8 +12,14 @@ std_effects.regen = status_effects.register_effect("regen", {
 			return
 		end
 		local hp = player:get_hp()
-		player:set_hp(hp + value, { type = "set_hp", cause = "std_effects:regen" })
+		local int_value = math.floor(value)
+		local float_part = value - int_value
+		if math.random() <= float_part then
+			int_value = int_value + 1
+		end
+		player:set_hp(hp + int_value, { type = "set_hp", cause = "std_effects:regen" })
 	end,
+
 	on_die = function(self, player)
 		self:clear(player)
 	end,
