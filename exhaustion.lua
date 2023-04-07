@@ -11,7 +11,6 @@ std_effects.exhaustion = status_effects.register_effect("exhaustion", {
 		local wielded_item = player:get_wielded_item()
 		local old_groupcaps = wielded_item:get_tool_capabilities()
 		if value <= 0 then
-			-- TODO don't fuck w/ non-tools
 			toolcap_monoids.full_punch:del_change(wielded_item, "std_effects:exhaustion")
 			toolcap_monoids.dig_speed:del_change(wielded_item, "std_effects:exhaustion")
 			player_monoids.speed:del_change(player, "std_effects:exhaustion")
@@ -22,9 +21,6 @@ std_effects.exhaustion = status_effects.register_effect("exhaustion", {
 			player_monoids.speed:add_change(player, math.pow(1 / 1.8, value), "std_effects:exhaustion")
 			player_monoids.jump:add_change(player, math.pow(1 / 1.1, value), "std_effects:exhaustion")
 		end
-		--status_effects.chat_send_all("[DEBUG] dig_speed @1 @2", dump(toolcap_monoids.dig_speed:value(wielded_item)),
-		--	dump(wielded_item:get_tool_capabilities().groupcaps)
-		--) -- TODO remove debug
 		local new_groupcaps = wielded_item:get_tool_capabilities()
 		if not futil.equals(old_groupcaps, new_groupcaps) then
 			player:set_wielded_item(wielded_item)
@@ -34,3 +30,15 @@ std_effects.exhaustion = status_effects.register_effect("exhaustion", {
 		self:clear(player)
 	end,
 })
+
+local old_handle_node_drops = minetest.handle_node_drops
+
+function minetest.handle_node_drops(pos, drops, digger)
+	if std_effects.exhaustion:value(digger) >= 1 then
+		for _, drop in ipairs(drops) do
+			minetest.add_item(pos, drop)
+		end
+	else
+		old_handle_node_drops(pos, drops, digger)
+	end
+end

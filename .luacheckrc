@@ -648,6 +648,11 @@ stds.minetest = {
 stds.std_effects = {
 	globals = {
 		"std_effects",
+		minetest = {
+			fields = {
+				handle_node_drops = {},
+			}
+		}
 	},
 	read_globals = {
 		"areas",
