@@ -83,6 +83,6 @@ std_effects:tipsy_enabled () bool true
 
 std_effects:water_breathing_enabled () bool true
 
-[weakness]
+[wet]
 
-std_effects:weakness_enabled () bool true
+std_effects:wet_enabled () bool true

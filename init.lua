@@ -70,6 +70,6 @@ if s.water_breathing_enabled then
 	std_effects.dofile("water_breathing")
 end
 
-if s.weakness then
-	std_effects.dofile("weakness")
+if s.wet_enabled then
+	std_effects.dofile("wet")
 end
