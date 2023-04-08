@@ -34,7 +34,9 @@ std_effects.exhaustion = status_effects.register_effect("exhaustion", {
 local old_handle_node_drops = minetest.handle_node_drops
 
 function minetest.handle_node_drops(pos, drops, digger)
-	if std_effects.exhaustion:value(digger) >= 1 then
+	if not minetest.is_player(digger) then
+		old_handle_node_drops(pos, drops, digger)
+	elseif std_effects.exhaustion:value(digger) >= 1 then
 		for _, drop in ipairs(drops) do
 			minetest.add_item(pos, drop)
 		end
