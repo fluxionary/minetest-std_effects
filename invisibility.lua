@@ -14,7 +14,7 @@ std_effects.invisibility = status_effects.register_effect("invisibility", {
 			self._unhide_name(player)
 		end
 	end,
-	hud_line = std_effects.util.numeric_hud_line,
+	hud_line = std_effects.util.boolean_hud_line,
 
 	_hide_textures = function(player)
 		local meta = player:get_meta()

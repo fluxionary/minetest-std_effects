@@ -1,3 +1,4 @@
+local f = string.format
 local S = std_effects.S
 local inf = tonumber("inf")
 
@@ -42,12 +43,31 @@ function std_effects.util.max_values(t, default)
 	return max
 end
 
+function std_effects.util.boolean_hud_line(self, player)
+	local value = self:value(player)
+	if type(value) ~= "boolean" then
+		error(f("%s: invalid value of type %s for boolean hud line", self.name, type(value)))
+	end
+	if not value then
+		return
+	end
+	local remaining = self:remaining_time(player)
+	if remaining == inf then
+		return S("@1", self.description)
+	else
+		return S("@1 (@3s)", self.description, remaining)
+	end
+end
+
 function std_effects.util.numeric_hud_line(self, player)
 	local value = self:value(player)
-	local remaining = self:remaining_time(player)
+	if type(value) ~= "number" then
+		error(f("%s: invalid value of type %s for numeric hud line", self.name, type(value)))
+	end
 	if value == 0 then
 		return
 	end
+	local remaining = self:remaining_time(player)
 	if remaining == inf then
 		return S("@1=@2", self.description, value)
 	else
@@ -57,10 +77,11 @@ end
 
 function std_effects.util.enabled_or_blocked_hud_line(self, player)
 	local value = self:value(player)
-	local remaining = self:remaining_time(player)
 	if value == false or value == nil then
 		return
 	end
+
+	local remaining = self:remaining_time(player)
 
 	if value == "blocked" then
 		if remaining == inf then
@@ -68,7 +89,7 @@ function std_effects.util.enabled_or_blocked_hud_line(self, player)
 		else
 			return S("@1 blocked (@2s)", self.description, remaining)
 		end
-	else
+	elseif value then
 		if remaining == inf then
 			return self.description
 		else
