@@ -19,4 +19,5 @@ std_effects.stun = status_effects.register_effect("stun", {
 	on_die = function(self, player)
 		self:clear(player)
 	end,
+	hud_line = std_effects.util.enabled_or_blocked_hud_line,
 })

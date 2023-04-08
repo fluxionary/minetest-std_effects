@@ -26,4 +26,5 @@ std_effects.strength = status_effects.register_effect("strength", {
 	on_die = function(self, player)
 		self:clear(player)
 	end,
+	hud_line = std_effects.util.numeric_hud_line,
 })

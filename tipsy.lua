@@ -37,6 +37,7 @@ std_effects.tipsy = status_effects.register_effect("tipsy", {
 	on_die = function(self, player)
 		self:clear(player)
 	end,
+	hud_line = std_effects.util.numeric_hud_line,
 
 	_reset_fov = function(self, player)
 		-- TODO fov_monoid
