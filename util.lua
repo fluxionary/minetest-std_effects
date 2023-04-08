@@ -55,7 +55,7 @@ function std_effects.util.boolean_hud_line(self, player)
 	if remaining == inf then
 		return S("@1", self.description)
 	else
-		return S("@1 (@3s)", self.description, remaining)
+		return S("@1 (@3s)", self.description, f("%.1f", remaining))
 	end
 end
 
@@ -71,7 +71,7 @@ function std_effects.util.numeric_hud_line(self, player)
 	if remaining == inf then
 		return S("@1=@2", self.description, value)
 	else
-		return S("@1=@2 (@3s)", self.description, value, remaining)
+		return S("@1=@2 (@3s)", self.description, value, f("%.1f", remaining))
 	end
 end
 
@@ -87,13 +87,13 @@ function std_effects.util.enabled_or_blocked_hud_line(self, player)
 		if remaining == inf then
 			return S("@1 blocked", self.description)
 		else
-			return S("@1 blocked (@2s)", self.description, remaining)
+			return S("@1 blocked (@2s)", self.description, f("%.1f", remaining))
 		end
 	elseif value then
 		if remaining == inf then
 			return self.description
 		else
-			return S("@1 (@2s)", self.description, remaining)
+			return S("@1 (@2s)", self.description, f("%.1f", remaining))
 		end
 	end
 end

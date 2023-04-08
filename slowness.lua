@@ -17,5 +17,6 @@ std_effects.slowness = status_effects.register_effect("slowness", {
 	on_die = function(self, player)
 		self:clear(player)
 	end,
-	hud_line = std_effects.util.numeric_hud_line,
+	-- TODO: make something for multiplicative values
+	--hud_line = std_effects.util.numeric_hud_line,
 })
