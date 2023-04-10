@@ -1,11 +1,3 @@
-[bleeding]
-
-[blindness]
-
-[burning]
-
-[builders_flight]
-
 # how long one potion lets you fly. default is 3 IRL days.
 builders_flight_effect:duration (flight duration) float 259200 0
 
@@ -23,40 +15,3 @@ builders_flight_effect:area_check_radius (area check radius) int 5 0
 
 # how often to check whether a player can fly
 builders_flight_effect:check_period () float 0.18 0
-
-[exhaustion]
-
-# requires staminoid. exhaust player when stamina is below this level.
-exhaustion_effect:stamina_level (stamina level for exhaustion effect) float 5 0
-
-exhaustion_effect:full_punch_gamma () float 1
-exhaustion_effect:dig_speed_gamma () float 1
-exhaustion_effect:speed_drop () float 0.5555555556
-exhaustion_effect:jump_drop () float .909090909
-
-[haste]
-
-[invisibility]
-
-[lycanthropy]
-
-[poison]
-
-[regen]
-
-regen_effect:base_value () float 1 0
-regen_effect:rate () float 0.05 0
-
-[shield[
-
-[slowness]
-
-[strength]
-
-[stun]
-
-[tipsy]
-
-[water_breathing]
-
-[wet]

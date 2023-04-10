@@ -10,16 +10,153 @@ repos:
 
   - repo: local
     hooks:
-      - id: luacheck
-        name: luacheck
-        language: system
-        entry: luacheck
-        pass_filenames: true
-        types: [ file, lua ]
-        args: [ -q ]
       - id: stylua
         name: stylua
         language: system
         entry: stylua
         pass_filenames: true
         types: [ file, lua ]
+      - id: luacheck_bleeding_effect
+        name: luacheck_bleeding_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^bleeding_effect/
+        types: [ file, lua ]
+        args: [ --config, ./bleeding_effect/.luacheckrc, -q ]
+      - id: luacheck_blindness_effect
+        name: luacheck_blindness_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^blindness_effect/
+        types: [ file, lua ]
+        args: [ --config, ./blindness_effect/.luacheckrc, -q ]
+      - id: luacheck_builders_flight_effect
+        name: luacheck_builders_flight_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^builders_flight_effect/
+        types: [ file, lua ]
+        args: [ --config, ./builders_flight_effect/.luacheckrc, -q ]
+      - id: luacheck_burning_effect
+        name: luacheck_burning_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^burning_effect/
+        types: [ file, lua ]
+        args: [ --config, ./burning_effect/.luacheckrc, -q ]
+      - id: luacheck_exhaustion_effect
+        name: luacheck_exhaustion_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^exhaustion_effect/
+        types: [ file, lua ]
+        args: [ --config, ./exhaustion_effect/.luacheckrc, -q ]
+      - id: luacheck_haste_effect
+        name: luacheck_haste_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^haste_effect/
+        types: [ file, lua ]
+        args: [ --config, ./haste_effect/.luacheckrc, -q ]
+      - id: luacheck_invisibility_effect
+        name: luacheck_invisibility_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^invisibility_effect/
+        types: [ file, lua ]
+        args: [ --config, ./invisibility_effect/.luacheckrc, -q ]
+      - id: luacheck_lycanthropy_effect
+        name: luacheck_lycanthropy_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^lycanthropy_effect/
+        types: [ file, lua ]
+        args: [ --config, ./lycanthropy_effect/.luacheckrc, -q ]
+      - id: luacheck_miasma_effect
+        name: luacheck_miasma_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^miasma_effect/
+        types: [ file, lua ]
+        args: [ --config, ./miasma_effect/.luacheckrc, -q ]
+      - id: luacheck_poison_effect
+        name: luacheck_poison_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^poison_effect/
+        types: [ file, lua ]
+        args: [ --config, ./poison_effect/.luacheckrc, -q ]
+      - id: luacheck_regen_effect
+        name: luacheck_regen_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^regen_effect/
+        types: [ file, lua ]
+        args: [ --config, ./regen_effect/.luacheckrc, -q ]
+      - id: luacheck_shield_effect
+        name: luacheck_shield_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^shield_effect/
+        types: [ file, lua ]
+        args: [ --config, ./shield_effect/.luacheckrc, -q ]
+      - id: luacheck_slowness_effect
+        name: luacheck_slowness_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^slowness_effect/
+        types: [ file, lua ]
+        args: [ --config, ./slowness_effect/.luacheckrc, -q ]
+      - id: luacheck_strength_effect
+        name: luacheck_strength_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^strength_effect/
+        types: [ file, lua ]
+        args: [ --config, ./strength_effect/.luacheckrc, -q ]
+      - id: luacheck_stun_effect
+        name: luacheck_stun_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^stun_effect/
+        types: [ file, lua ]
+        args: [ --config, ./stun_effect/.luacheckrc, -q ]
+      - id: luacheck_tipsy_effect
+        name: luacheck_tipsy_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^tipsy_effect/
+        types: [ file, lua ]
+        args: [ --config, ./tipsy_effect/.luacheckrc, -q ]
+      - id: luacheck_water_breathing_effect
+        name: luacheck_water_breathing_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^water_breathing_effect/
+        types: [ file, lua ]
+        args: [ --config, ./water_breathing_effect/.luacheckrc, -q ]
+      - id: luacheck_wet_effect
+        name: luacheck_wet_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^wet_effect/
+        types: [ file, lua ]
+        args: [ --config, ./wet_effect/.luacheckrc, -q ]
