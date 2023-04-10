@@ -1,7 +1,7 @@
 exhaustion_effect = fmod.create()
 
 local S = exhaustion_effect.S
-local s = exhaustion_effect.s
+local s = exhaustion_effect.settings
 local has = exhaustion_effect.has
 
 exhaustion_effect.effect = status_effects.register_effect("exhaustion", {
