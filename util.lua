@@ -69,9 +69,9 @@ function std_effects.util.numeric_hud_line(self, player)
 	end
 	local remaining = self:remaining_time(player)
 	if remaining == inf then
-		return S("@1=@2", self.description, value)
+		return S("@1=@2", self.description, f("%.1f", value))
 	else
-		return S("@1=@2 (@3s)", self.description, value, f("%.1f", remaining))
+		return S("@1=@2 (@3s)", self.description, f("%.1f", value), f("%.1f", remaining))
 	end
 end
 
