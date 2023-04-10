@@ -15,11 +15,11 @@ if lycanthropy_effect.has.petz and petz.settings.lycanthropy then
 	error("cannot have both petz lycanthropy and lycanthropy_effect lycanthropy enabled at the same time")
 end
 
-lycanthropy_effect.dofile("lycanthropy", "util")
+lycanthropy_effect.dofile("util")
 
-lycanthropy_effect.dofile("lycanthropy", "lycanthropy_effect")
-lycanthropy_effect.dofile("lycanthropy", "werewolf_effect")
-lycanthropy_effect.dofile("lycanthropy", "chatcommands")
-lycanthropy_effect.dofile("lycanthropy", "items")
+lycanthropy_effect.dofile("lycanthropy_effect")
+lycanthropy_effect.dofile("werewolf_effect")
+lycanthropy_effect.dofile("chatcommands")
+lycanthropy_effect.dofile("items")
 
-lycanthropy_effect.dofile("lycanthropy", "compat")
+lycanthropy_effect.dofile("compat")

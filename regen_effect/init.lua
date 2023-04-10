@@ -14,7 +14,7 @@ regen_effect.effect = status_effects.register_effect("regen", {
 			return
 		end
 		local hp = player:get_hp()
-		value = value * dtime * s.regen
+		value = value * dtime * s.rate
 		local int_value = math.floor(value)
 		local float_part = value - int_value
 		if math.random() <= float_part then

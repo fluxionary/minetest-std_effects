@@ -4,7 +4,7 @@ local s = lycanthropy_effect.settings
 lycanthropy_effect.lycanthropy = status_effects.register_effect("lycanthropy", {
 	description = S("lycanthropy"),
 	fold = function(self, t)
-		return status_effects.fold.any_value(t)
+		return status_effects.fold.any(t)
 	end,
 	step_every = 1,
 	step_catchup = false,

@@ -163,7 +163,7 @@ lycanthropy_effect.werewolf = status_effects.register_effect("werewolf", {
 		self._hud_id_by_player_name = {}
 	end,
 	fold = function(self, t)
-		return lycanthropy_effect.util.not_blocked(t)
+		return status_effects.fold.not_blocked(t)
 	end,
 	apply = function(self, player, value, previous_value)
 		if value == true and previous_value ~= true then

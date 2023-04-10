@@ -14,7 +14,7 @@ bleeding_effect.effect = status_effects.register_effect("bleeding", {
 			return
 		end
 		local hp = player:get_hp()
-		player:set_hp(hp - value, { type = "set_hp", cause = "std_effects:bleeding" })
+		player:set_hp(hp - value, { type = "set_hp", cause = "bleeding_effect" })
 	end,
 	on_die = function(self, player)
 		self:clear(player)
