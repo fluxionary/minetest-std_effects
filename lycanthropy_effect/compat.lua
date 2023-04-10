@@ -7,7 +7,7 @@ if lycanthropy_effect.has["3d_armor"] then
 end
 
 if lycanthropy_effect.has.astral then
-	local old_werewolf_ok = lycanthropy_effect.util.werewolf_ok
+	local old_werewolf_ok = lycanthropy_effect.werewolf_ok
 	function lycanthropy_effect.werewolf_ok(player)
 		return astral.get_moon_phase() == 4 and old_werewolf_ok(player)
 	end
