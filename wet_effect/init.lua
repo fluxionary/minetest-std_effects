@@ -28,7 +28,7 @@ futil.register_globalstep({
 		local players = minetest.get_connected_players()
 		for i = 1, #players do
 			local player = players[i]
-			local ppos = vector.round(player:get_pos())
+			local ppos = vector.round(vector.offset(player:get_pos(), 0, 0.25, 0))
 			local node = minetest.get_node(ppos)
 			if minetest.get_item_group(node.name, "water") > 0 then
 				wet_effect.effect:add_timed(player, "in water", true, 60)
