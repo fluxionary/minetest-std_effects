@@ -1,6 +1,8 @@
 wet_effect = fmod.create()
 local S = wet_effect.S
 
+local has_staminoid = wet_effect.has.staminoid
+
 wet_effect.effect = status_effects.register_effect("wet", {
 	description = S("wet"),
 	fold = function(self, values_by_key)
@@ -10,10 +12,14 @@ wet_effect.effect = status_effects.register_effect("wet", {
 		if value == true and old_value ~= true then
 			-- TODO constants -> settings
 			player_monoids.speed:add_change(player, 0.85, "wet_effect")
-			player_monoids.jump:add_change(player, 0.85, "wet_effect")
+			if has_staminoid then
+				staminoid.stamina_regen_effect:add(player, "wet_effect", { multiplier = 0.75 })
+			end
 		elseif old_value == true and value ~= true then
 			player_monoids.speed:del_change(player, "wet_effect")
-			player_monoids.jump:del_change(player, "wet_effect")
+			if has_staminoid then
+				staminoid.stamina_regen_effect:clear(player, "wet_effect")
+			end
 		end
 	end,
 	on_die = function(self, player)

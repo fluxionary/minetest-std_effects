@@ -654,5 +654,6 @@ stds.wet_effect = {
 		"futil",
 		"status_effects",
 		"player_monoids",
+		"staminoid",
 	},
 }
