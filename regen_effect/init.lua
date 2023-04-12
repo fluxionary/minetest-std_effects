@@ -14,6 +14,10 @@ regen_effect.effect = status_effects.register_effect("regen", {
 			return
 		end
 		local hp = player:get_hp()
+		if hp == 0 then
+			-- don't heal dead people
+			return
+		end
 		value = value * dtime * s.rate
 		local int_value = math.floor(value)
 		local float_part = value - int_value
