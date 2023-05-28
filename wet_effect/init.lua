@@ -34,15 +34,25 @@ futil.register_globalstep({
 		local players = minetest.get_connected_players()
 		for i = 1, #players do
 			local player = players[i]
-			local ppos = vector.round(vector.offset(player:get_pos(), 0, 0.25, 0))
-			local node = minetest.get_node(ppos)
+			local ppos = player:get_pos()
+			local pos = vector.round(vector.offset(ppos, 0, 0.25, 0)) -- don't get wet if just your toes are in water
+			local node = minetest.get_node(pos)
 			if minetest.get_item_group(node.name, "water") > 0 then
 				wet_effect.effect:add_timed(player, "in water", true, 60)
 			elseif wet_effect.effect:value(player) then
-				local poss = minetest.find_nodes_in_area(vector.subtract(ppos, 2), vector.add(ppos, 2), "group:igniter")
-				if #poss > 0 then
+				local p1 = vector.subtract(pos, 2)
+				local p2 = vector.add(pos, 2)
+				local poss_by_igniter = minetest.find_nodes_in_area(p1, p2, "group:igniter", true)
+				local heat = 0
+				for igniter, poss in pairs(poss_by_igniter) do
+					local strength = 2 / minetest.get_item_group(igniter, "igniter")
+					for _, pos2 in ipairs(poss) do
+						heat = heat + (strength / math.max(1, vector.distance(ppos, pos2)))
+					end
+				end
+				if heat > 0 then
 					local remaining_time = wet_effect.effect:remaining_time(player, "in water")
-					wet_effect.effect:add_timed(player, "in water", true, remaining_time - elapsed)
+					wet_effect.effect:add_timed(player, "in water", true, remaining_time - (elapsed * heat))
 				end
 			end
 		end
