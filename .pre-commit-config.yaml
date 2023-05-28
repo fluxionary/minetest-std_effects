@@ -96,6 +96,14 @@ repos:
         files: ^miasma_effect/
         types: [ file, lua ]
         args: [ --config, ./miasma_effect/.luacheckrc, -q ]
+      - id: luacheck_nightvision_effect
+        name: luacheck_nightvision_effect
+        language: system
+        entry: luacheck
+        pass_filenames: true
+        files: ^nightvision_effect/
+        types: [ file, lua ]
+        args: [ --config, ./nightvision_effect/.luacheckrc, -q ]
       - id: luacheck_poison_effect
         name: luacheck_poison_effect
         language: system

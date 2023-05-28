@@ -4,8 +4,8 @@ local S = invisibility_effect.S
 
 invisibility_effect.effect = status_effects.register_effect("invisibility", {
 	description = S("invisibility"),
-	fold = function(self, t)
-		return status_effects.fold.any(t)
+	fold = function(self, values_by_key)
+		return status_effects.fold.any(values_by_key)
 	end,
 	apply = function(self, player, value, old_value)
 		if value and not old_value then

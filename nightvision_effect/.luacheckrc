@@ -1,4 +1,4 @@
-std = "lua51+luajit+minetest+lycanthropy_effect"
+std = "lua51+luajit+minetest+miasma_effect"
 unused_args = false
 max_line_length = 120
 
@@ -645,21 +645,14 @@ stds.minetest = {
 	}
 }
 
-stds.lycanthropy_effect = {
+stds.miasma_effect = {
 	globals = {
-		"lycanthropy_effect",
+		"nightvision_effect",
 	},
 	read_globals = {
 		"fmod",
 		"futil",
 		"status_effects",
-		"canonical_name",
-		"armor",
-		"astral",
-		"nightvision_effect",
-		"player_api",
-		"petz",
-		"player_monoids",
 		"more_player_monoids",
 	},
 }

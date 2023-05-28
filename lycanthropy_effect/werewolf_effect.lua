@@ -113,6 +113,14 @@ lycanthropy_effect.werewolf = status_effects.register_effect("werewolf", {
 		player_monoids.jump:del_change(player, "status_effects:werewolf")
 		player_monoids.gravity:del_change(player, "status_effects:werewolf")
 	end,
+	_set_werewolf_attributes = function(self, player)
+		nightvision_effect.effect:add(player, "werewolf", true)
+		more_player_monoids.saturation:add_change(player, 0, "werewolf")
+	end,
+	_unset_werewolf_attributes = function(self, player)
+		nightvision_effect.effect:clear(player, "werewolf")
+		more_player_monoids.saturation:del_change(player, "werewolf")
+	end,
 	_set_werewolf_hud = function(self, player)
 		local player_name = player:get_player_name()
 		local hud_id = self._hud_id_by_player_name[player_name]
@@ -150,12 +158,14 @@ lycanthropy_effect.werewolf = status_effects.register_effect("werewolf", {
 		end
 		self:_set_werewolf_appearance(player)
 		self:_set_werewolf_physics(player)
+		self:_set_werewolf_attributes(player)
 		self:_set_werewolf_hud(player)
 		self:howl(player)
 	end,
 	_become_human = function(self, player)
 		self:_unset_werewolf_appearance(player)
 		self:_unset_werewolf_physics(player)
+		self:_unset_werewolf_attributes(player)
 		self:_unset_werewolf_hud(player)
 	end,
 
