@@ -78,3 +78,11 @@ function minetest.handle_node_drops(pos, drops, digger)
 		old_handle_node_drops(pos, drops, digger)
 	end
 end
+
+local old_builtin_item_on_punch = minetest.registered_entities["__builtin:item"].on_punch
+
+minetest.registered_entities["__builtin:item"].on_punch = function(self, hitter, ...)
+	if not minetest.is_player(hitter) or exhaustion_effect.effect:value(hitter) < 1 then
+		return old_builtin_item_on_punch(self, hitter, ...)
+	end
+end
