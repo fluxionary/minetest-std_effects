@@ -37,7 +37,10 @@ futil.register_globalstep({
 			local ppos = player:get_pos()
 			local pos = vector.round(vector.offset(ppos, 0, 0.25, 0)) -- don't get wet if just your toes are in water
 			local node = minetest.get_node(pos)
-			if minetest.get_item_group(node.name, "water") > 0 then
+			if
+				minetest.get_item_group(node.name, "liquid") > 0
+				and minetest.get_item_group(node.name, "igniter") == 0
+			then
 				wet_effect.effect:add_timed(player, "in water", true, 60)
 			elseif wet_effect.effect:value(player) then
 				local p1 = vector.subtract(pos, 2)
