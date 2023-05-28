@@ -84,9 +84,9 @@ tipsy_effect.effect = status_effects.register_effect("tipsy", {
 		minetest.sound_play("tipsy_burp", { to_player = player:get_player_name(), gain = 0.7 }, true)
 	end,
 	_poison = function(self, player, amount)
-		tipsy_effect.poison:add(player, "tipsy_effect:tipsy", amount)
+		poison_effect.effect:add(player, "tipsy_effect:tipsy", amount)
 	end,
 	_clear_poison = function(self, player)
-		tipsy_effect.poison:clear(player, "tipsy_effect:tipsy")
+		poison_effect.effect:clear(player, "tipsy_effect:tipsy")
 	end,
 })

@@ -652,5 +652,6 @@ stds.tipsy_effect = {
 	read_globals = {
 		"fmod",
 		"status_effects",
+		"poison_effect",
 	},
 }
