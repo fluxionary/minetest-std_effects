@@ -6,7 +6,7 @@ minetest.register_craftitem("builders_flight_effect:builders_flight", {
 	inventory_image = "builders_flight_effect_buildersflight.png",
 	wield_image = "builders_flight_effect_buildersflight.png",
 	on_use = function(itemstack, user, pointed_thing)
-		if not minetest.is_player(user) then
+		if not futil.is_player(user) then
 			return
 		end
 

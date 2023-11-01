@@ -651,6 +651,7 @@ stds.builders_flight_effect = {
 	},
 	read_globals = {
 		"fmod",
+		"futil",
 		"status_effects",
 		"areas",
 		"player_monoids",

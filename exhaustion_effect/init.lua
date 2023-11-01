@@ -68,7 +68,7 @@ exhaustion_effect.effect = status_effects.register_effect("exhaustion", {
 local old_handle_node_drops = minetest.handle_node_drops
 
 function minetest.handle_node_drops(pos, drops, digger)
-	if not minetest.is_player(digger) then
+	if not futil.is_player(digger) then
 		old_handle_node_drops(pos, drops, digger)
 	elseif exhaustion_effect.effect:value(digger) >= 1 then
 		for _, drop in ipairs(drops) do
@@ -82,7 +82,7 @@ end
 local old_builtin_item_on_punch = minetest.registered_entities["__builtin:item"].on_punch
 
 minetest.registered_entities["__builtin:item"].on_punch = function(self, hitter, ...)
-	if not minetest.is_player(hitter) or exhaustion_effect.effect:value(hitter) < 1 then
+	if not futil.is_player(hitter) or exhaustion_effect.effect:value(hitter) < 1 then
 		return old_builtin_item_on_punch(self, hitter, ...)
 	end
 end

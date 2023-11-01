@@ -8,6 +8,8 @@ local function is_in_water(player)
 	return minetest.get_item_group(target_in_node.name, "water") > 0
 end
 
+-- TODO: we should add particles to indicate the player is burning, or perhaps attach flaming entities to them?
+
 burning_effect.effect = status_effects.register_effect("burning", {
 	description = S("burning"),
 	fold = function(self, values_by_key)
