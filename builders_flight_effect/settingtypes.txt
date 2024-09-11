@@ -1,17 +1,17 @@
 # how long one potion lets you fly. default is 3 IRL days.
-builders_flight_effect:duration (flight duration) float 259200 0
+builders_flight_effect.duration (flight duration) float 259200 0
 
 # you can't fly below this y coordinate
-builders_flight_effect:min_elevation (minimum elevation) int -500 -31000 31000
+builders_flight_effect.min_elevation (minimum elevation) int -500 -31000 31000
 
 # you can't fly above this y coordinate
-builders_flight_effect:max_elevation (maximum elevation) int -500 -31000 31000
+builders_flight_effect.max_elevation (maximum elevation) int -500 -31000 31000
 
 # minimum age of an area before you can fly in it.
-builders_flight_effect:min_valid_area_time (time before area is valid) int 3600 0
+builders_flight_effect.min_valid_area_time (time before area is valid) int 3600 0
 
 # how far beyond the edge of an area you can fly
-builders_flight_effect:area_check_radius (area check radius) int 5 0
+builders_flight_effect.area_check_radius (area check radius) int 5 0
 
 # how often to check whether a player can fly
-builders_flight_effect:check_period () float 0.18 0
+builders_flight_effect.check_period () float 0.18 0

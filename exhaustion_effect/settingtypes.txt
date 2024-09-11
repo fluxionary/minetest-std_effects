@@ -1,7 +1,7 @@
 # requires staminoid. exhaust player when stamina is below this level.
-exhaustion_effect:stamina_level (stamina level for exhaustion effect) float 5 0
+exhaustion_effect.stamina_level (stamina level for exhaustion effect) float 5 0
 
-exhaustion_effect:full_punch_gamma () float 1
-exhaustion_effect:dig_speed_gamma () float 1
-exhaustion_effect:speed_drop () float 0.5555555556
-exhaustion_effect:jump_drop () float .909090909
+exhaustion_effect.full_punch_gamma () float 1
+exhaustion_effect.dig_speed_gamma () float 1
+exhaustion_effect.speed_drop () float 0.5555555556
+exhaustion_effect.jump_drop () float .909090909
